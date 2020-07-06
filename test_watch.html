@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <script>
+      var n = document.cookie ;
+      var nn = n.split("=") ;
+      var nnn = nn.length - 1 ;
+      if (n.indexOf("local") == -1)
+      {
+          document.cookie = "local=" + nnn ;
+      }
+      function setCookie(cname,cvalue,expsec)
+      {
+        var d = new Date() ;
+        d.setTime(d.getTime()+(expsec * 1000)) ;
+        var expires = "expires=" + d.toGMTString() ;
+        document.cookie = "" + cname + "=" + cvalue + "; " + expires ;
+      }
+      function getCookie(cname)
+      {
+        var name = cname + "=" ;
+        var ca = document.cookie.split(';') ;
+        for (var i = 0 ; i < ca.length ; i++)
+        {
+          var c = ca[i].trim() ;
+          if (c.indexOf(name) == 0)
+          {
+            return c.substring(name.length,c.length) ;
+          }
+        }
+        return "";
+      }
+      function checkCookie()
+      {
+        var user = getCookie(getCookie("local")) ;
+        if (user != "")
+        {
+          alert("Welcome the " + user + "!") ;
+        }
+        else
+        {
+          setCookie(nnn,"1",30) ;        
+        }
+      }
+      checkCookie() ;
+      document.write("<p>" + document.cookie + "</p>") ;
+      document.write(document.cookie.length) ;
+    </script>
+  </body>
+</html>
