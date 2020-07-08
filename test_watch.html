@@ -1,53 +1,29 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ page import="java.io.*,java.util.*" %>
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
+    <title>访问量统计</title>
   </head>
   <body>
-    <script>
-      var n = document.cookie ;
-      var nn = n.split("=") ;
-      var nnn = nn.length - 1 ;
-      if (n.indexOf("local") == -1)
+    <%
+      Integer hitsCount = (Integer)application.getAttribute("hitCounter") ;
+      if ( hitsCount == null || hitsCount == 0 )
       {
-          document.cookie = "local=" + nnn ;
+        /* 第一次访问 */
+        out.println("Welcome");
+        hitsCount = 1;
       }
-      function setCookie(cname,cvalue,expsec)
+      else
       {
-        var d = new Date() ;
-        d.setTime(d.getTime()+(expsec * 1000)) ;
-        var expires = "expires=" + d.toGMTString() ;
-        document.cookie = "" + cname + "=" + cvalue + "; " + expires ;
+       /* 返回访问值 */
+       out.println("Welcome again");
+       hitsCount += 1;
       }
-      function getCookie(cname)
-      {
-        var name = cname + "=" ;
-        var ca = document.cookie.split(';') ;
-        for (var i = 0 ; i < ca.length ; i++)
-        {
-          var c = ca[i].trim() ;
-          if (c.indexOf(name) == 0)
-          {
-            return c.substring(name.length,c.length) ;
-          }
-        }
-        return "";
-      }
-      function checkCookie()
-      {
-        var user = getCookie(getCookie("local")) ;
-        if (user != "")
-        {
-          alert("Welcome the " + user + "!") ;
-        }
-        else
-        {
-          setCookie(nnn,"1",300) ;        
-        }
-      }
-      checkCookie() ;
-      document.write("<p>" + document.cookie + "</p>") ;
-      document.write(document.cookie.length) ;
-    </script>
+      application.setAttribute("hitCounter", hitsCount);
+    %>
+    <p>page view<%= hitsCount%></p>
   </body>
 </html>
