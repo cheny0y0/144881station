@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="uft-8">
+    <title>禁止套娃鬼畜1分钟 - 1站</title>
+  </head>
+  <body>
+    <h1>禁止套娃鬼畜1分钟</h1>
+    <img border="0" src="https://cheny0y0.github.io/144881station/video/5/cover.jpeg" alt="cover" width="200" height="150">
+    <p><a href="https://cheny0y0.github.io/144881station/user/cheny0y0">cheny0y0</a> 发布 - 2020/7/24 09:38:24 - VID:5</p>
+    <script>
+      var caution = false ;
+      function setCookie(name,value,expires,path,domain,secure)
+      {
+        var curCookie = name + "=" + escape(value) + ((expires)?";expires="+expires.toGMTString() : "") + ((path)?"; path=" + path : "") + ((domain)? "; domain=" + domain : "") + ((secure)?";secure" : "") ;
+        if (!(caution) || (name + "=" + escape(value)).length <= 4000)
+        {
+          document.cookie = curCookie ;
+        }
+        else if (confirm("Cookie exceeds 4KB and will be cut!"))
+        {
+          document.cookie = curCookie ;
+        }
+      }
+      function getCookie(name)
+      {
+        var prefix = name + "=" ;
+        var cookieStartIndex = document.cookie.indexOf(prefix) ;
+        if (cookieStartIndex == -1)
+        {
+          return null ;
+        }
+        var cookieEndIndex = document.cookie.indexOf(";",cookieStartIndex+prefix.length) ;
+        if(cookieEndIndex == -1)
+        {
+          cookieEndIndex = document.cookie.length ;
+        }
+        return unescape(document.cookie.substring(cookieStartIndex+prefix.length,cookieEndIndex)) ;
+      }
+      function deleteCookie(name, path, domain)
+      {
+        if(getCookie(name))
+        {
+          document.cookie = name + "=" + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + "; expires=Thu, 01-Jan-70 00:00:01 GMT" ;
+        }
+      }
+      function fixDate(date)
+      {
+        var base=new Date(0) ;
+        var skew=base.getTime() ;
+        if (skew > 0)
+        {
+          date.setTime(date.getTime() - skew) ;
+        }    
+      }
+      var now=new Date() ;
+      fixDate(now) ;
+      now.setTime(now.getTime() + 365 * 24 * 60 * 60 * 1000) ;
+      var visits = getCookie("counter") ;
+      if(!visits)
+      {
+        visits = 1 ;
+      }  
+      else
+      {
+        visits = parseInt(visits) + 1 ;
+      }  
+      setCookie("counter", visits, now) ;
+      document.write("<p>" + visits + "次观看</p>") ;
+    </script>
+    <iframe src="https://cheny0y0.github.io/144881station/video/5/5.mp4" allowfullscreen="false"></iframe>
+    <p>此视频为UP主自制</p>
+    
+  </body>
+</html>
