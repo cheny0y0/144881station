@@ -7,7 +7,7 @@
   <body>
     <h1>←To Be Continued</h1>
     <img border="0" src="https://cheny0y0.github.io/144881station/video/0/cover.png" alt="cover" width="200" height="150">
-    <p>cheny0y0 发布 - 2020/6/6 16:45:00 - VID:0</p>
+    <p><a href="https://cheny0y0.github.io/144881station/user/cheny0y0">cheny0y0</a> 发布 - 2020/6/6 16:45:00 - VID:0</p>
     <p>最近一次修改于2020/6/6 19:28:00</p>
     <script>
       var caution = false ;
@@ -56,7 +56,7 @@
       }
       var now=new Date() ;
       fixDate(now) ;
-      now.setTime(now.getTime()+365 * 24 * 60 * 60 * 1000) ;
+      now.setTime(now.getTime() + 365 * 24 * 60 * 60 * 1000) ;
       var visits = getCookie("counter") ;
       if(!visits)
       {
@@ -67,7 +67,7 @@
         visits = parseInt(visits) + 1 ;
       }  
       setCookie("counter", visits, now) ;
-      document.write("<p>" + visits + "次观看</p>")
+      document.write("<p>" + visits + "次观看</p>") ;
     </script>
     <iframe src="https://cheny0y0.github.io/144881station/video/0/0.mov" allowfullscreen="false"></iframe>
     <p>此视频为UP主自制</p>
